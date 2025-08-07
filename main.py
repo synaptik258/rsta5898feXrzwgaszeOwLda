@@ -59,28 +59,13 @@ def fetch_new_ads(seen_ids):
             continue
         url = link_tag["href"]
         full_url = url if url.startswith("http") else BASE_URL + url
-
-        try:
-            ad_id = full_url.split("-ID")[1].split(".")[0]
-        except IndexError:
-            continue
+        ad_id = full_url.split("-ID")[1].split(".")[0]
 
         if ad_id in seen_ids:
             continue
 
         title_tag = item.select_one("h4")
         price_tag = item.select_one("p[data-testid='ad-price']")
-        date_tag = item.select_one("p[data-testid='location-date']")
-
-        # ⛔️ Если не можем найти дату — пропускаем
-        if not date_tag:
-            continue
-
-        date_text = date_tag.text.strip().lower()
-
-        # ✅ Оставляем только объявления за сегодня (dzisiaj = сегодня)
-        if "dzisiaj" not in date_text:
-            continue
 
         ad = {
             "id": ad_id,
@@ -163,4 +148,4 @@ def main():
 
 if __name__ == "__main__":
     main()
-
+    
