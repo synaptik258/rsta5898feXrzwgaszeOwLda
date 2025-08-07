@@ -134,7 +134,7 @@ def parser_loop():
         else:
             print("[-] Новых объявлений нет.")
 
-        time.sleep(5 * 60)  # парсинг каждые 5 минут
+        time.sleep(20)  # парсинг каждые 5 минут
 
 def main():
     echo_thread = threading.Thread(target=echo_loop, daemon=True)
