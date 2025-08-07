@@ -12,7 +12,7 @@ TELEGRAM_CHAT_ID = 6202982315
 HEADERS = {
     "User-Agent": UserAgent().random
 }
-SEARCH_URL = "https://www.olx.pl/oferty/q-oculus-quest-2/?search%5Border%5D=created_at%3Adesc"
+SEARCH_URL = "https://www.olx.pl/elektronika/gry-konsole/akcesoria-gamingowe/urzadzenia-vr/?search%5Border%5D=created_at:desc"
 BASE_URL = "https://www.olx.pl"
 
 SEEN_FILE = "seen.json"
@@ -148,3 +148,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
