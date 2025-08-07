@@ -70,7 +70,7 @@ def fetch_new_ads(seen_ids):
         if ad_id in seen_ids:
             continue
 
-        title_tag = item.select_one("h6")
+        title_tag = item.select_one("h4")
         price_tag = item.select_one("p[data-testid='ad-price']")
         date_tag = item.select_one("p[data-testid='location-date']")
 
