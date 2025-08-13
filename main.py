@@ -5,7 +5,6 @@ import json
 import os
 import time
 import threading
-from datetime import datetime
 
 TELEGRAM_TOKEN = '7796095559:AAEHWAE8FehvcNw2UNK5hru_O33SjS-4q6E'
 TELEGRAM_CHAT_ID = 6202982315
@@ -43,7 +42,6 @@ def send_telegram_message(text, chat_id=TELEGRAM_CHAT_ID):
     except Exception as e:
         print(f"[!] Telegram exception: {e}")
 
-
 def fetch_new_ads(seen_ids):
     try:
         response = requests.get(SEARCH_URL, headers=HEADERS, timeout=10)
@@ -61,26 +59,13 @@ def fetch_new_ads(seen_ids):
             continue
         url = link_tag["href"]
         full_url = url if url.startswith("http") else BASE_URL + url
-
-        ad_id_part = full_url.split("-ID")
-        if len(ad_id_part) < 2:
-            continue
-        ad_id = ad_id_part[1].split(".")[0]
+        ad_id = full_url.split("-ID")[1].split(".")[0]
 
         if ad_id in seen_ids:
             continue
 
         title_tag = item.select_one("h4")
         price_tag = item.select_one("p[data-testid='ad-price']")
-        date_tag = item.select_one("p[data-testid='location-date']")
-
-        if not date_tag:
-            continue
-
-        date_text = date_tag.text.strip().lower()
-
-        if "dzisiaj" not in date_text:
-            continue  # ⛔️ Пропускаем, если не сегодня
 
         ad = {
             "id": ad_id,
@@ -163,4 +148,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-    
