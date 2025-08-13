@@ -13,7 +13,7 @@ TELEGRAM_CHAT_ID = 6202982315
 HEADERS = {
     "User-Agent": UserAgent().random
 }
-SEARCH_URL = "https://www.olx.pl/elektronika/gry-konsole/akcesoria-gamingowe/urzadzenia-vr/?search%5Border%5D=created_at:desc"
+SEARCH_URL = "https://olx.pl/oferty/q-maszyna-do-szycia/?search%5Bfilter_float_price%3Afrom%5D=free&search%5Border%5D=relevance%3Adesc"
 BASE_URL = "https://www.olx.pl"
 
 SEEN_FILE = "seen.json"
