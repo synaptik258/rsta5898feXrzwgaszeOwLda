@@ -12,7 +12,7 @@ TELEGRAM_CHAT_ID = 6202982315
 HEADERS = {
     "User-Agent": UserAgent().random
 }
-SEARCH_URL = "https://olx.pl/oferty/q-maszyna-do-szycia/?search%5Border%5D=relevance:desc&search%5Bfilter_float_price:from%5D=free"
+SEARCH_URL = "https://olx.pl/elektronika/komputery/laptopy/?search%5Bfilter_float_price:from%5D=free"
 BASE_URL = "https://www.olx.pl"
 
 SEEN_FILE = "seen.json"
